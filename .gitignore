@@ -1,0 +1,10 @@
+*~
+*.[ao]
+*.gch
+*.exe
+*.pro*
+bin/
+gather/
+logs/
+model/
+snap/
