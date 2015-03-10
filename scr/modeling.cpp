@@ -146,9 +146,14 @@ int main(int argc, char* argv[])
 	if (FREE_SURF == "IMAGING_TOPOGRAPHY" || FREE_SURF == "AEA_TOPOGRAPHY")
 	{
 		flag_mark(flag, vpIn, 1, NX, 1, NZ, freeDH);
-		outputdata("..\\..\\temp\\mark.temp", flag, 1, NX, 1, NZ); //输出标记的网格点，确认没有错误
+		//outputdata("..\\..\\temp\\mark.temp", flag, 1, NX, 1, NZ); //输出标记的网格点，确认没有错误
 	}
 
+	if(READMOD == "YES")
+		free_dmatrix(vpIn, 0, NX + 1, 1, NZ + 1);
+	else if(READMOD == "NO")
+		free_dmatrix(vpIn, -1, NX + 2, -1, NZ + 2);
+	
 	/*确定检波器位置*/
 	int ntr; //总接收道数
 	int    ** recpos = NULL; //检波器位置,recpos[1][...] x位置,recpos[2][...],Z位置
@@ -162,9 +167,9 @@ int main(int argc, char* argv[])
 	sectionvx = dmatrix(1, ntr, 1, ns);
 	sectionvz = dmatrix(1, ntr, 1, ns);
 
-	float *cp_x, *cp_z;
-	cp_x = dvector(1, ns);
-	cp_z = dvector(1, ns);
+	//float *cp_x, *cp_z;
+	//cp_x = dvector(1, ns);
+	//cp_z = dvector(1, ns);
 
 	int csamp = NDT;//采样其实时间，以后会增加NDT
 
@@ -271,10 +276,6 @@ int main(int argc, char* argv[])
 		if ((SEISMO != "NO") && ntr > 0 && csamp == nt && nt < NT)
 		{
 			seismogram(csamp, ntr, recpos, sectionvx, sectionvz, vx, vz);
-
-			////解析解对比
-			//cp_x[csamp / NDT] = vx[520][300];
-			//cp_z[csamp / NDT] = vz[520][300];
 			csamp += NDT;
 		}
 
@@ -303,19 +304,17 @@ int main(int argc, char* argv[])
 		cout << message << endl;
 		message.clear();
 	}
-
-	ofstream outcp_x("cp_vx.txt");
-	ofstream outcp_z("cp_vz.txt");
-	for (int j = 1; j <= ns; j++)
-	{
-		outcp_x << cp_x[j] << endl;
-		outcp_z << cp_z[j] << endl;
-	}
-	outcp_x.close();
-	outcp_z.close();
-
-	free_dvector(cp_x, 1, ns);
-	free_dvector(cp_z, 1, ns);
+	//ofstream outcp_x("cp_vx.txt");
+	//ofstream outcp_z("cp_vz.txt");
+	//for (int j = 1; j <= ns; j++)
+	//{
+	//	outcp_x << cp_x[j] << endl;
+	//	outcp_z << cp_z[j] << endl;
+	//}
+	//outcp_x.close();
+	//outcp_z.close();
+	//free_dvector(cp_x, 1, ns);
+	//free_dvector(cp_z, 1, ns);
 	
 	/*释放速度应力*/
 	free_dmatrix(vx, -5, NX + 6, -5, NZ + 6);

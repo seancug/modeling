@@ -1,5 +1,5 @@
 output = ../bin
-OPT=-O3 -Wall
+OPT=-O2 -Wall
 mcc=g++
 
 objects = modeling.o \
@@ -106,4 +106,4 @@ write_repos.o:write_repos.cpp topoft.h
 	$(mcc) $(OPT) -c $<
 
 clean:
-	del $(objects) modeling *~ *.gch
+	rm $(objects) modeling *~ *.gch

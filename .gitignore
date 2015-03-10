@@ -9,3 +9,5 @@
 *.temp
 *.log
 *.dat
+*.mat
+doc/

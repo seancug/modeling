@@ -32,7 +32,7 @@ string snap( int nt, string format, string type,
 
 	if (format == "ASCII")
 	{
-		sprintf(ext, ".txt");
+		sprintf(ext, ".mat");
 	}
 	else if (format == "BINARY")
 	{
