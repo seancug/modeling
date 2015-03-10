@@ -9,7 +9,7 @@ void write_repos(int **repos,int ntr)
 	extern float DX, DZ;
     char tem[124];
     sprintf(tem, "%s%s","../gather/", REC_FILE);
-	pos_fp = fopen(REC_FILE, "w");
+	pos_fp = fopen(tem, "w");
 	fprintf(pos_fp, "trace num\tx position\ty position\n");
 	for (int i = 1; i <= ntr;i++)
 	{

@@ -146,7 +146,7 @@ int main(int argc, char* argv[])
 	if (FREE_SURF == "IMAGING_TOPOGRAPHY" || FREE_SURF == "AEA_TOPOGRAPHY")
 	{
 		flag_mark(flag, vpIn, 1, NX, 1, NZ, freeDH);
-		//outputdata("..\\..\\temp\\mark.temp", flag, 1, NX, 1, NZ); //输出标记的网格点，确认没有错误
+		outputdata("../model/flag.dat", flag, 1, NX, 1, NZ); //输出标记的网格点，确认没有错误
 	}
 
 	if(READMOD == "YES")
