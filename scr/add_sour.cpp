@@ -12,8 +12,8 @@ void add_sour(int nt, float ** vx, float **vz, float **rden)
 	float sour_term;
 	float factor;
 	factor = (-1.0)*AMP;
-	nxs = iround(XS / DX);
-	nzs = iround(ZS / DZ);
+	nxs = iround(XS / DX) + 1;
+	nzs = iround(ZS / DZ) + 1;
 	t = (nt - 1)*DT;
 
 	if (SOURCE_WAVELET == "RICKER")

@@ -14,10 +14,15 @@ void caculate_coff(float **rden, float **lam, float **u, float **vpIn, float **v
 	{
 		for (int j = NZ_f; j <= NZ_e - ifw_z; j++)
 		{
-			if (rhoIn[i][j] == 0)
+			if (vpIn[i][j] == 345.0){
 				rden[i][j] = 0;
+				vpIn[i][j] = 0;
+				vsIn[i][j] = 0;
+				rhoIn[i][j] = 0;// set air velocity 0
+			}
 			else
 				rden[i][j] = 1 / (rhoIn[i][j] * 1000.0); //密度倒数
+
 			lam[i][j] = (pow(vpIn[i][j], 2) - 2 * pow(vsIn[i][j], 2))*(rhoIn[i][j] * 1000.0); //拉梅常数
 			u[i][j] = pow(vsIn[i][j], 2)*(rhoIn[i][j] * 1000.0);
 		}

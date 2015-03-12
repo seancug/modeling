@@ -7,13 +7,14 @@
 # 中国地质大学(武汉)
 #
 #--------------------- 通用参数 -------------------------------
-&GENERAL: title = 'Topography_test', verbose='1.0'/
+&GENERAL: title = 'Topography test', verbose='1.0'/
 
 #--------------------- 时间步长 -------------------------------
-&TIME: ti = 1.4, dt= 2e-4 /
+&TIME: ti = 0.6, dt= 1e-4 /
+
 #--------------------- 震源参数 -------------------------------
 &SOURCE: wavelet = 'RICKER', mechanism = 'EXPLOSION',f0 = 25.0,
-	coorid = 2000.0, 580.0, ampli = 1.0/
+	coorid = 500.0, 300.0, ampli = 1.0/
 
 #--------------------- 读取模型 -------------------------------
 &MODEL: readMod = 'YES', mfile_vp = mp.grd, mfile_vs = ms.grd, mfile_den = md.grd, format = 'GRID' /
@@ -22,14 +23,14 @@
 &SURFACE: free_surf = 'AEA_TOPOGRAPHY' /
 
 #--------------------- PML边界条件边界 -----------------------
-&BC_PAR: fw = 80, damping = 1e-4 /
+&BC_PAR: fw = 5, damping = 1e-4 /
 
 #--------------------- 快照 -----------------------
-&SNAP_DEF: fileds = 'V', tsnap1 = 0.1, tsnap2 = 0.8, tsnapinc = 0.1, 
-	format = 'BINARY', snapFile = sanp /
+&SNAP_DEF: fileds = 'V', tsnap1 = 0.1, tsnap2 = 0.3, tsnapinc = 0.05, 
+	format = 'ASCII', snapFile = waveFiled /
 
 #--------------------- 检波器 -----------------------
-&REC_LINE: rec_type = 'TOPOGRAPHY', first = 100, 0, last = 3200, 0, interval = 5, 0, 
+&REC_LINE: rec_type = 'TOPOGRAPHY', first = 10, 0, last = 490, 0, interval = 1, 0, 
 	out_rec = recever_position.dat /
 
 #--------------------- 地震记录 -----------------------

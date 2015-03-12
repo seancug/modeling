@@ -45,9 +45,9 @@ int main(int argc, char* argv[])
         char tem[124];
         sprintf(tem, "%s%s","../model/", MFILE_VP);
         vpIn = rd_model(tem, NX, NZ, DX, DZ);
-        sprintf(MFILE_VS, "%s%s","../model/", MFILE_VS);
+        sprintf(tem, "%s%s","../model/", MFILE_VS);
         vsIn = rd_model(tem, NX, NZ, DX, DZ);
-        sprintf(MFILE_DEN, "%s%s","../model/", MFILE_DEN);
+        sprintf(tem, "%s%s","../model/", MFILE_DEN);
         denIn = rd_model(tem, NX, NZ, DX, DZ);
 
         char temmess[128];
@@ -57,10 +57,10 @@ int main(int argc, char* argv[])
         sprintf(temmess, "\tNumber of x Direction Grids.............<numbers> = %d\n", NX);
         message.append(temmess);
         sprintf(temmess, "\tNumber of z Direction Grids.............<numbers> = %d\n", NZ);
-        message.append(tem);
+        message.append(temmess);
         sprintf(temmess, "\tInterval of X Direction.......................<m> = %.2f\n", DX);
         message.append(temmess);
-        sprintf(tem, "\tInterval of Z Direction.......................<m> = %.2f\n", DZ);
+        sprintf(temmess, "\tInterval of Z Direction.......................<m> = %.2f\n", DZ);
         message.append(temmess);
 
         cout<<message;
