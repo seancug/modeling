@@ -48,16 +48,12 @@ void AEA_topo_update_v(int nt, int **flag, float ** vx, float ** vz,
 				eff_rden_x = rden[m][n] * 2.0;
 				eff_rden_z = rden[m][n] * 2.0;
 				/*保证稳定性，将OL与IL相邻的点速度设置为0*/
-				if (flag[m][n + 1] == 5 && flag[m + 1][n] == 5)
-				{
-					eff_rden_z = 0.0;
-					eff_rden_x = 0.0;
-				}
-				else if (flag[m][n + 1] == 5)
+
+                if (flag[m][n + 1] == 5)
 				{
 					eff_rden_z = 0.0;
 				}
-				else if (flag[m + 1][n] == 5)
+                if (flag[m + 1][n] == 5)
 				{
 					eff_rden_x = 0.0;
 				}
@@ -67,19 +63,18 @@ void AEA_topo_update_v(int nt, int **flag, float ** vx, float ** vz,
 				//eff_rden_x = rden[m][n] * 2.0;
 				eff_rden_x = 0; //位于
 				
-				/*if (flag[m][n + 1] == 4)
+                if (flag[m][n + 1] == 4)
 				{
 					eff_rden_z = 0.0;
-				}*/
+                }
+                if (flag[m - 1][n] == 4)
+                {
+                    eff_rden_z = 0.0;
+                }
 				break;
 			case 4:/*IR-point*/
 				eff_rden_x = rden[m][n] * 2.0;
-				eff_rden_z = rden[m][n];
-
-				if (flag[m + 1][n] == 3)//OR与IR相邻速度设置为0
-				{
-					eff_rden_x = 0.0;
-				}
+                eff_rden_z = rden[m][n];
 				break;
 			case 5:/*IL-point*/
 				eff_rden_x = rden[m][n];

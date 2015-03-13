@@ -157,7 +157,7 @@ int main(int argc, char* argv[])
 	/*确定检波器位置*/
 	int ntr; //总接收道数
 	int    ** recpos = NULL; //检波器位置,recpos[1][...] x位置,recpos[2][...],Z位置
-	int **test = imatrix(1, NX, 1, NZ);
+//	int **test = imatrix(1, NX, 1, NZ);
 	recpos = receiver(ntr, flag); //返回检波器位置数组
 
 	//outputdata("../../temp/recpos.temp", recpos, 1, 2, 1, ntr);
@@ -185,7 +185,7 @@ int main(int argc, char* argv[])
 	pml.leftv = dvector(1, ifw_x);
 	pml.rightv = dvector(NX - ifw_x + 1, NX);
 	pml.bottomv = dvector(NZ - ifw_z + 1, NZ);
-	pml_coff(pml, 4800, 1, NX, 1, NZ);
+    pml_coff(pml, 2771.3, 1, NX, 1, NZ);
 
 	pml_array array;
 

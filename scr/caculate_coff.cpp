@@ -14,7 +14,7 @@ void caculate_coff(float **rden, float **lam, float **u, float **vpIn, float **v
 	{
 		for (int j = NZ_f; j <= NZ_e - ifw_z; j++)
 		{
-			if (vpIn[i][j] == 345.0){
+            if (vpIn[i][j] <= 345.0){
 				rden[i][j] = 0;
 				vpIn[i][j] = 0;
 				vsIn[i][j] = 0;
