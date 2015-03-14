@@ -43,6 +43,11 @@ void AEA_topo_update_v(int nt, int **flag, float ** vx, float ** vz,
 			case 1:/*H-point,*/
 				eff_rden_x = rden[m][n] * 2.0;
 				eff_rden_z = rden[m][n];
+				
+				if (flag[m + 1][n] == 3)
+				{
+					eff_rden_z = rden[m][n] * 2.0;
+				}
 				break;
 			case 2:/*OL-point*/
 				eff_rden_x = rden[m][n] * 2.0;
@@ -75,6 +80,11 @@ void AEA_topo_update_v(int nt, int **flag, float ** vx, float ** vz,
 			case 4:/*IR-point*/
 				eff_rden_x = rden[m][n] * 2.0;
                 eff_rden_z = rden[m][n];
+				
+				if (flag[m + 1][n] == 3)
+				{
+					eff_rden_z = rden[m][n] * 2.0;
+				}
 				break;
 			case 5:/*IL-point*/
 				eff_rden_x = rden[m][n];
