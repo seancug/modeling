@@ -98,6 +98,7 @@ void AEA_topo_update_s(int nt, int **flag, float ** vx, float ** vz,
 			case 7:/*VR-point,ok*/
 				eff_lam = 0.0;
 				tractionxx = 0.0;
+				tractionxz = 0.0;//位于真空之中
 				eff_u_xz = u[m][n];
 				break;
 			}

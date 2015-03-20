@@ -95,7 +95,7 @@ void AEA_topo_update_v(int nt, int **flag, float ** vx, float ** vz,
 				eff_rden_z = rden[m][n] * 2.0;
 				break;
 			case 7:/*VR-point*/
-				eff_rden_x = rden[m][n];
+				eff_rden_x = 0.0;
 				eff_rden_z = rden[m][n] * 2.0;
 				break;
 			}
