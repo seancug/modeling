@@ -201,10 +201,10 @@ void AEA_topo_update_s(int nt, int **flag, float ** vx, float ** vz,
 				eff_lam = 0.0;
 				tractionzz = 0.0;
 				eff_u_xz = u[m][n];
-				if (flag[m + 1][n] == 3)
+				/* if (flag[m + 1][n] == 3)
 				{
 					tractionxz = 0.0;
-				}
+				} */
 			}
 
 			vx_dx = (
@@ -272,10 +272,10 @@ void AEA_topo_update_s(int nt, int **flag, float ** vx, float ** vz,
 				eff_lam = 0.0;
 				tractionzz = 0.0;
 				eff_u_xz = u[m][n];
-				if (m < NX&&flag[m + 1][n] == 3)
+				/* if (m < NX&&flag[m + 1][n] == 3)
 				{
 					tractionxz = 0.0;
-				}
+				} */
 			}
 
 			vx_dx = (

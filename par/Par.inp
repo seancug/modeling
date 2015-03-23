@@ -10,30 +10,30 @@
 &GENERAL: title = 'Topography_test', verbose='1.0'/
 
 #--------------------- 时间步长 -------------------------------
-&TIME: ti = 1.4, dt= 2e-4 /
+&TIME: ti = 0.8, dt= 1e-4 /
 #--------------------- 震源参数 -------------------------------
-&SOURCE: wavelet = 'RICKER', mechanism = 'EXPLOSION',f0 = 25.0,
-	coorid = 2000.0, 580.0, ampli = 1.0/
+&SOURCE: wavelet = 'RICKER', mechanism = 'EXPLOSION',f0 = 40.0,
+	coorid = 1200.0, 200.0, ampli = 1.0/
 
 #--------------------- 读取模型 -------------------------------
-&MODEL: readMod = 'YES', mfile_vp = mp.grd, mfile_vs = ms.grd, mfile_den = md.grd, format = 'GRID' /
+&MODEL: readMod = 'YES', mfile_vp = p.grd, mfile_vs = s.grd, mfile_den = d.grd, format = 'GRID' /
 
 #--------------------- 自由边界 -------------------------------
 &SURFACE: free_surf = 'AEA_TOPOGRAPHY' /
 
 #--------------------- PML边界条件边界 -----------------------
-&BC_PAR: fw = 80, damping = 1e-4 /
+&BC_PAR: fw = 20, damping = 1e-4 /
 
 #--------------------- 快照 -----------------------
-&SNAP_DEF: fileds = 'V', tsnap1 = 0.1, tsnap2 = 0.8, tsnapinc = 0.1, 
-	format = 'BINARY', snapFile = sanp /
+&SNAP_DEF: fileds = 'V', tsnap1 = 0.1, tsnap2 = 0.8, tsnapinc = 0.05, 
+	format = 'ASCII', snapFile = sanp /
 
 #--------------------- 检波器 -----------------------
-&REC_LINE: rec_type = 'TOPOGRAPHY', first = 100, 0, last = 3200, 0, interval = 5, 0, 
-	out_rec = recever_position.dat /
+&REC_LINE: rec_type = 'TOPOGRAPHY', first = 50, 0, last = 1950, 0, interval = 10, 0, 
+	out_rec = recever.dat /
 
 #--------------------- 地震记录 -----------------------
-&GATHER: seisGather = 'V', ndt = 5, format = 'SEGY', seis_file_vx = vx.sgy,
+&GATHER: seisGather = 'V', ndt = 10, format = 'SEGY', seis_file_vx = vx.sgy,
 	seis_file_vz = vz.sgy /
 
 

@@ -185,7 +185,7 @@ int main(int argc, char* argv[])
 	pml.leftv = dvector(1, ifw_x);
 	pml.rightv = dvector(NX - ifw_x + 1, NX);
 	pml.bottomv = dvector(NZ - ifw_z + 1, NZ);
-    pml_coff(pml, 2771.3, 1, NX, 1, NZ);
+    pml_coff(pml, 1732.05, 1, NX, 1, NZ);
 
 	pml_array array;
 
